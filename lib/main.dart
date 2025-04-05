@@ -8,7 +8,6 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -24,14 +23,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class TaskListScreen extends StatefulWidget {
   const TaskListScreen({super.key});
 
   @override
   State<TaskListScreen> createState() => _TaskListScreenState();
 }
-
 class _TaskListScreenState extends State<TaskListScreen> {
   void addItem() {
     Navigator.push(
@@ -48,7 +45,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
         "isCompleted": false,
       });
     } catch (e) {
-      print(e);
+      // Uselessness
     }
   }
 
@@ -56,7 +53,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
     try {
       FirebaseFirestore.instance.collection("tasks").doc(id).delete();
     } catch (e) {
-      print(e);
+      // Also useless
     }
   }
   @override
